@@ -21,7 +21,14 @@ export default function ShoppingCart() {
   ] = useState(initialProducts)
 
   function handleIncreaseClick(productId) {
-
+    setProducts(
+      products.map(product =>{
+        if(product.id==productId){
+          return {...product, count: product.count +1}
+        }
+        return product
+      })
+    )
   }
 
   return (
